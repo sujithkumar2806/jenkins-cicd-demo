@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'just checking auto build  ',
+    message: 'just checking auto build 1  ',
     version: '1.0'
   });
 });
