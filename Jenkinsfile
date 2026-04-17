@@ -1,11 +1,16 @@
 pipeline {
     agent any
 
+
     environment {
         IMAGE_NAME = 'jenkins-cicd-demo'
         CONTAINER_NAME = 'cicd-app'
         APP_PORT = '3000'
         HOST_PORT = '8090'
+    }
+
+    triggers {
+        githubPush()
     }
 
     stages {
