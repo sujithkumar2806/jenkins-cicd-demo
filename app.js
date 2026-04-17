@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'ratnapal  just checking build 1  ',
+    message: 'This is for shubhakshan ',
     version: '1.0'
   });
 });
