@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hi jsut a yping pratcoec y',
+    message: 'Hi bro my jenkin is working properly  ',
     version: '1.0'
   });
 });
