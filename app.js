@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'This  is  Sujith Mulammagari from tudip',
+    message: 'This  is  Sujith  Mulammagari from tudip',
     version: '1.0'
   });
 });
