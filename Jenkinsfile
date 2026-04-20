@@ -40,21 +40,23 @@ pipeline {
         stage('AWS Login & Push to ECR') {
             steps {
                 withCredentials([
-                    string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
-                    string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
-                ]) {
-                    sh '''
-                        export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-                        export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-                        export AWS_DEFAULT_REGION=us-east-1
+    string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+    string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+]) {
+    sh '''
+        export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+        export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+        export AWS_DEFAULT_REGION=us-east-1
 
-                        aws ecr get-login-password --region us-east-1 | \
-                        docker login --username AWS --password-stdin 608380991635.dkr.ecr.us-east-1.amazonaws.com
+        aws sts get-caller-identity
 
-                        docker tag jenkins-cicd-demo:latest 608380991635.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
-                        docker push 608380991635.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
-                    '''
-                }
+        aws ecr get-login-password --region us-east-1 | \
+        docker login --username AWS --password-stdin 608380991635.dkr.ecr.us-east-1.amazonaws.com
+
+        docker tag jenkins-cicd-demo:latest 608380991635.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+        docker push 608380991635.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+    '''
+}
             }
         }
 
