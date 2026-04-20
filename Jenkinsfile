@@ -42,33 +42,10 @@ pipeline {
 
         stage('AWS Login & Push to ECR') {
             steps {
-                echo '🔐 Logging into ECR & pushing image...'
+            echo '🔐 Logging into ECR & pushing image...'
 
-                withCredentials([
-                    string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
-                    string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
-                ]) {
-                    sh """
-                        aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-                        aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-                        aws configure set region ${AWS_REGION}
-
-                        aws ecr get-login-password --region ${AWS_REGION} | \
-                        docker login --username AWS --password-stdin ${ECR_REPO}
-
-                        docker tag ${IMAGE_NAME}:latest ${ECR_REPO}:latest
-                        docker push ${ECR_REPO}:latest
-                    """
-                }
-            }
-        }
-
-        stage('AWS Login & Push to ECR') {
-    steps {
-        echo '🔐 Logging into ECR & pushing image...'
-
-        withCredentials([
-            string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+            withCredentials([
+                string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
             string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
         ]) {
             sh '''
@@ -83,6 +60,8 @@ pipeline {
                 docker push 608380991635.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
             '''
         }
+    }
+}
     }
 }
 
