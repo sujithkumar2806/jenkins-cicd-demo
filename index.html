@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome | Nginx Server</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1d2671, #c33764);
+        color: white;
+    }
+
+    .container {
+        text-align: center;
+        padding: 40px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .highlight {
+        color: #ffd369;
+        font-weight: bold;
+    }
+
+    a {
+        color: #ffd369;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Welcome to nginx, <span class="highlight">Sujith Mulammagari</span> 🚀</h1>
+
+    <p>Your Nginx web server is successfully installed and running.</p>
+
+    <p>This server is now ready to host your applications, websites, or APIs.</p>
+
+    <p>
+        Learn more at 
+        <a href="http://nginx.org/" target="_blank">nginx.org</a>
+    </p>
+
+    <footer>
+        Powered by Nginx on AWS ☁️
+    </footer>
+</div>
+
+</body>
+</html>
