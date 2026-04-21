@@ -10,7 +10,7 @@ pipeline {
         AWS_REGION = 'us-east-1'
         ECR_REPO = '608380991635.dkr.ecr.us-east-1.amazonaws.com/my-app'
 
-        EC2_HOST = '54.221.168.166'
+        EC2_HOST = '13.217.224.26'
     }
 
     triggers {
